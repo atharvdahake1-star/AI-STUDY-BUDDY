@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <title>Study Buddy — Your Learning Space</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#">
+      <span class="brand-icon">✦</span>
+      <span>Study<span class="accent">Buddy</span></span>
+    </a>
+
+    <p class="side-label">WORKSPACE</p>
+    <button class="nav-item active" data-view="overview">⌂ <span>Overview</span></button>
+    <button class="nav-item" data-view="notes">▤ <span>My Notes</span></button>
+    <button class="nav-item" data-view="flashcards">▧ <span>Flashcards</span></button>
+    <button class="nav-item" data-view="quiz">◉ <span>Quick Quiz</span></button>
+    <button class="nav-item" data-view="images">▧ <span>Reference Images</span></button>
+
+    <div class="sidebar-bottom">
+      <div class="mini-profile">
+        <div class="avatar">S</div>
+        <div><strong>Student</strong><small>Your learning space</small></div>
+      </div>
+      <p class="muted tiny">Study smarter, one day at a time.</p>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="mobile-brand">✦ Study Buddy</div>
+      <div class="topbar-right">
+        <span class="status-dot"></span>
+        <span class="muted">Your personal workspace</span>
+        <button id="themeToggle" class="icon-btn" title="Toggle theme">☼</button>
+      </div>
+    </header>
+
+    <section class="page-heading">
+      <div>
+        <p class="eyebrow">YOUR PERSONAL STUDY SPACE</p>
+        <h1 id="pageTitle">Good to see you <span class="accent">✦</span></h1>
+        <p class="muted" id="pageSubtitle">Organise your notes. Test your knowledge. Keep learning.</p>
+      </div>
+      <div class="date-pill" id="todayDate"></div>
+    </section>
+
+    <section class="subject-bar panel">
+      <div>
+        <label for="subjectSelect">CURRENT SUBJECT</label>
+        <select id="subjectSelect"></select>
+      </div>
+      <div class="subject-actions">
+        <button class="btn btn-secondary" id="addSubject">＋ New subject</button>
+        <button class="btn btn-danger" id="deleteSubject">Delete</button>
+      </div>
+    </section>
+
+    <section class="view active" id="overview">
+      <div class="welcome-card">
+        <div class="welcome-copy">
+          <span class="pill">✦ YOUR LEARNING HUB</span>
+          <h2>Make every study<br>session <span class="accent">count.</span></h2>
+          <p>Keep everything you need to learn in one simple workspace.</p>
+          <button class="btn btn-primary" data-go="notes">Start studying <span>→</span></button>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orb orb-one"></div>
+          <div class="orb orb-two"></div>
+          <div class="book-art">✧<br><span>LEARN</span></div>
+          <div class="floating-note">✦ Keep growing</div>
+        </div>
+      </div>
+
+      <div class="section-heading">
+        <div><h2>Your study toolkit</h2><p class="muted">Everything organised by subject.</p></div>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card">
+          <div class="stat-icon purple">▤</div>
+          <p class="muted">Saved notes</p>
+          <h2 id="noteCount">0</h2>
+          <span class="muted tiny">For this subject</span>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon blue">▧</div>
+          <p class="muted">Flashcards</p>
+          <h2 id="cardCount">0</h2>
+          <span class="muted tiny">Ready to revise</span>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon green">◉</div>
+          <p class="muted">Quiz questions</p>
+          <h2 id="quizCount">0</h2>
+          <span class="muted tiny">Created from your notes</span>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon orange">▧</div>
+          <p class="muted">Reference images</p>
+          <h2 id="imageCount">0</h2>
+          <span class="muted tiny">Saved for revision</span>
+        </article>
+      </div>
+
+      <div class="section-heading">
+        <div><h2>Jump back in</h2><p class="muted">Choose what you want to work on.</p></div>
+      </div>
+      <div class="quick-grid">
+        <button class="quick-card" data-go="notes"><span class="quick-icon purple">✎</span><strong>Write notes</strong><small>Add and organise your knowledge →</small></button>
+        <button class="quick-card" data-go="flashcards"><span class="quick-icon blue">▧</span><strong>Revise flashcards</strong><small>Practise terms and definitions →</small></button>
+        <button class="quick-card" data-go="quiz"><span class="quick-icon green">✓</span><strong>Take a quiz</strong><small>Test yourself from your notes →</small></button>
+        <button class="quick-card" data-go="images"><span class="quick-icon orange">▧</span><strong>Save references</strong><small>Keep useful images together →</small></button>
+      </div>
+    </section>
+
+    <section class="view" id="notes">
+      <div class="section-heading"><div><h2>My Notes</h2><p class="muted">One fact or concept per line. Use a colon to separate a term and definition.</p></div></div>
+      <form id="noteForm" class="panel form-panel">
+        <label for="noteTitle">Note title</label>
+        <input id="noteTitle" placeholder="e.g. Structure of the Atom" required maxlength="100">
+        <label for="noteContent">Your notes</label>
+        <textarea id="noteContent" rows="7" placeholder="Mitochondria: The powerhouse of the cell&#10;Photosynthesis: Process plants use to convert light into energy" required></textarea>
+        <div class="form-footer"><span class="muted tiny">Notes stay in this browser.</span><button class="btn btn-primary">＋ Save notes</button></div>
+      </form>
+      <div id="notesList" class="item-list"></div>
+    </section>
+
+    <section class="view" id="flashcards">
+      <div class="section-heading"><div><h2>Flashcards</h2><p class="muted">Learn actively, one concept at a time.</p></div></div>
+      <form id="cardForm" class="panel form-panel">
+        <label for="cardFront">Term or question</label>
+        <input id="cardFront" placeholder="e.g. What is photosynthesis?" required>
+        <label for="cardBack">Definition or answer</label>
+        <textarea id="cardBack" rows="3" placeholder="Plants use light energy to make food." required></textarea>
+        <div class="form-footer"><span class="muted tiny">Create your own revision cards.</span><button class="btn btn-primary">＋ Add flashcard</button></div>
+      </form>
+      <div id="flashcardStudy" class="flashcard-study hidden">
+        <p class="eyebrow">ACTIVE RECALL</p>
+        <div id="flashcardFace" class="flashcard-face"></div>
+        <button class="btn btn-secondary" id="flipCard">Show answer</button>
+        <div class="study-controls"><button class="btn btn-secondary" id="prevCard">← Previous</button><span id="cardPosition" class="muted"></span><button class="btn btn-primary" id="nextCard">Next →</button></div>
+      </div>
+      <div id="cardsList" class="item-list"></div>
+    </section>
+
+    <section class="view" id="quiz">
+      <div class="section-heading"><div><h2>Quick Quiz</h2><p class="muted">Create multiple-choice questions from notes written as “Term: Definition”.</p></div></div>
+      <div class="panel form-panel">
+        <p class="muted">The quiz uses your saved notes to build practice questions. Add at least two suitable term-definition lines to get started.</p>
+        <button class="btn btn-primary" id="generateQuiz">Generate quiz →</button>
+      </div>
+      <div id="quizArea" class="item-list"></div>
+    </section>
+
+    <section class="view" id="images">
+      <div class="section-heading"><div><h2>Reference Images</h2><p class="muted">Keep diagrams and visual learning resources in one place.</p></div></div>
+      <form id="imageForm" class="panel form-panel">
+        <label for="imageTitle">Image title</label>
+        <input id="imageTitle" placeholder="e.g. Cell structure diagram" required>
+        <label for="imageUrl">Image URL</label>
+        <input id="imageUrl" type="url" placeholder="https://example.com/image.jpg" required>
+        <p class="muted tiny">Use a direct image link. The website must allow the image to be displayed.</p>
+        <div class="form-footer"><span class="muted tiny">External links need internet access.</span><button class="btn btn-primary">＋ Save reference</button></div>
+      </form>
+      <div id="imagesList" class="image-grid"></div>
+    </section>
+
+    <footer>Made for focused learning <span class="accent">✦</span> <span class="muted">Study Buddy</span></footer>
+  </main>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
+
