@@ -2,9 +2,7 @@
 
 Hey! Welcome to my project.
 
-I'm Atharv, and I built **AI Study Buddy** because I wanted to create something useful for students like me. Studying can sometimes feel overwhelming, so I wanted to make a website that could eventually help make the process a little easier and more organized.
-
-### 💡 About the project
+I'm Atharv, and I built **AI Study Buddy** because I wanted to create something useful for students like me. Studying can sometimes feel overwhelming, so I wanted to make a website that could eventually help make the process a little easier and more organized.### 💡 About the project
 
 AI Study Buddy is a student-focused website that I'm developing as part of my journey into web development. I'm working on its design, improving the user experience, and exploring ideas that could make it a helpful tool for students.
 
@@ -36,3 +34,6 @@ I'm still learning, experimenting, and figuring things out along the way. That's
 **Atharv Dahake**
 
 Thanks for checking out my project! ❤️
+## Screenshot
+
+![Study Buddy website](study-buddy.png)
